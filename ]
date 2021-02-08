@@ -1,0 +1,54 @@
+newアクションの定義
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch master
+# Your branch is up to date with 'origin/master'.
+#
+# Changes to be committed:
+#	modified:   app/controllers/tasks_controller.rb
+#	deleted:    app/views/tasks/new.html.erb
+#	new file:   app/views/tasks/new.html.slim
+#
+# ------------------------ >8 ------------------------
+# Do not modify or remove the line above.
+# Everything below it will be ignored.
+diff --git a/app/controllers/tasks_controller.rb b/app/controllers/tasks_controller.rb
+index eef4cc2..7b8ebdb 100644
+--- a/app/controllers/tasks_controller.rb
++++ b/app/controllers/tasks_controller.rb
+@@ -6,6 +6,7 @@ class TasksController < ApplicationController
+   end
+ 
+   def new
++    @task = Task.new
+   end
+ 
+   def edit
+diff --git a/app/views/tasks/new.html.erb b/app/views/tasks/new.html.erb
+deleted file mode 100644
+index 2484008..0000000
+--- a/app/views/tasks/new.html.erb
++++ /dev/null
+@@ -1,2 +0,0 @@
+-<h1>Tasks#new</h1>
+-<p>Find me in app/views/tasks/new.html.erb</p>
+diff --git a/app/views/tasks/new.html.slim b/app/views/tasks/new.html.slim
+new file mode 100644
+index 0000000..65862a2
+--- /dev/null
++++ b/app/views/tasks/new.html.slim
+@@ -0,0 +1,13 @@
++h1 タスクの新規登録
++
++.nav.justify-content-end
++  = link_to '一覧', tasks_path, class: 'nav-link'
++
++= form_with model: @task, local: true do |f|
++  .form_group
++    = f.label :name
++    = f.text_field :name, class: 'form-control', id: 'task_name'
++  .form_group
++    = f.label :description
++    = f.text_area :description, rows: 5, class: 'form-control', id: 'task_description'
++  = f.submit nil, class: 'btn btn-primary'
