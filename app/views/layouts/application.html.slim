@@ -9,7 +9,7 @@ html
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body
     .app-title.navbar.navbar-expand-md.navbar-light.bg-light
-      .navbar-brand Taskleaf
+      = link_to "Taskleaf", root_path, class: 'navbar-brand'
     .container
       = if flash.notice.present?
         .alert.alert-success = flash.notice
