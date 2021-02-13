@@ -13,6 +13,7 @@ module ScaffoldApp
 
     # 日本語の言語設定
    config.i18n.default_locale = :ja
+   config.time_zone = 'Asia/Tokyo'
 
     # Configuration for the application, engines, and railties goes here.
     #
