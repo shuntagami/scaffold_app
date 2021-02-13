@@ -6,7 +6,10 @@
 
 # Ignore bundler config.
 /.bundle
+
+# 以下追記
 /.tags
+/config/database.yml
 
 # Ignore all logfiles and tempfiles.
 /log/*
