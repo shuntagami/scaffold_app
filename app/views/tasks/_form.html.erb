@@ -8,18 +8,18 @@
 
 <%= form_with model: @task, local: true do |f| %>
   <div class="form-group">
-    <label>name</label>
+    <label>名称</label>
     <%= f.text_field :name, class: 'form-control', id: 'task_name' %>
   </div>
 
   <div class="form-group">
-    <label>description</label>
+    <label>説明</label>
     <%= f.text_area :description, rows: 5, class: 'form-control', id: 'task_description' %>
   </div>
 
   <div class="form-group">
-    <label>deadline</label>
-    <%= f.text_field :deadline, class: 'form-control', id: 'task_deadline' %>
+    <label>期限</label><br>
+    <%= date_select :date, Date.today, use_month_numbers: true %>
   </div>
 
   <%= f.submit nil, class: 'btn btn-primary' %>
