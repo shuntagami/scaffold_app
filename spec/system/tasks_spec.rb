@@ -1,9 +1,10 @@
 require 'rails_helper'
+require 'date'
 
 describe "タスク管理機能", type: :system do
   let(:user_a) { create(:user, name: 'ユーザーA', email: 'a@example.com') }
   let(:user_b) { create(:user, name: 'ユーザーB', email: 'b@example.com') }
-  let!(:task_a) { create(:task, name: '最初のタスク', user: user_a) }
+  let!(:task_a) { create(:task, name: '最初のタスク', deadline: Date.today, user: user_a) }
 
   before do
     visit login_path
@@ -50,11 +51,13 @@ describe "タスク管理機能", type: :system do
     before do
       visit new_task_path
       fill_in '名称', with: task_name
+      fill_in '期限', with: dead_line
       click_button '登録する'
     end
 
-    context '新規作成画面で名称を入力したとき' do
+    context '新規作成画面で名称と期限を入力したとき' do
       let(:task_name) { '新規作成のテストを書く' }
+      let(:dead_line) { Date.today }
 
       it '正常に登録される' do
         expect(page).to have_selector '.alert-success', text: '新規作成のテストを書く'
@@ -63,9 +66,19 @@ describe "タスク管理機能", type: :system do
 
     context '新規作成画面で名称を入力しなかったとき' do
       let(:task_name) { '' }
+      let(:dead_line) { Date.today }
 
       it 'エラーになる' do
         expect(page).to have_content '名称を入力してください'
+      end
+    end
+
+    context '新規作成画面で期限を入力しなかっとき' do
+      let(:task_name) { '新規作成のテストを書く' }
+      let(:dead_line) { }
+
+      it 'エラーになる' do
+        expect(page).to have_content '期限を入力してください'
       end
     end
   end
