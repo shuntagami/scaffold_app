@@ -30,7 +30,6 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 # 以下追記
 gem 'font-awesome-sass'
-gem 'bootstrap'
 gem 'rails-i18n'
 gem 'slim-rails'
 gem 'rails_autolink'
