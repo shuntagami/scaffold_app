@@ -33,7 +33,6 @@ gem 'font-awesome-sass'
 gem 'rails-i18n'
 gem 'slim-rails'
 gem 'rails_autolink'
-gem 'bootstrap4-datetime-picker-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
