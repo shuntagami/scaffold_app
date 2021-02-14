@@ -8,25 +8,19 @@
 
 <%= form_with model: @task, local: true do |f| %>
   <div class="form-group">
-    <label>名称</label>
+    <%= f.label :name, class: 'control-label' %>
     <%= f.text_field :name, class: 'form-control', id: 'task_name' %>
   </div>
 
   <div class="form-group">
-    <label>説明</label>
+    <%= f.label :description, class: 'control-label' %>
     <%= f.text_area :description, rows: 5, class: 'form-control', id: 'task_description' %>
   </div>
 
   <div class="form-group">
-    <label>期限</label><br>
-    <%# <%= date_select :date, Date.today, use_month_numbers: true %>
-    <%# <%= f.datetime_select(:deadline, Date.today)%>
-    <div class="input-group" data-target-input="nearest">
-    <%= f.text_field :created_at, id: "created_at", class: "form-control datepicker", data: { target: '#created_at'} %>
-    <div class="input-group-append" data-target="#created_at" data-toggle="datetimepicker">
-        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-    </div>
-</div>
+    <!-- <label>期限</label><br> -->
+    <%= f.label :deadline, class: 'control-label' %>
+    <%=f.date_field :deadline, class: 'form-control', id: 'task_deadline' %>
   </div>
 
   <%= f.submit nil, class: 'btn btn-primary' %>
