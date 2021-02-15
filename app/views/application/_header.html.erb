@@ -41,3 +41,6 @@
     </ul>
   </div>
 </nav>
+<% if flash.notice.present? %>
+  <p class="alert alert-success"><%= flash.notice %></p>
+<% end %>
