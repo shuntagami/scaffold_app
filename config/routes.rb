@@ -8,5 +8,9 @@ Rails.application.routes.draw do
   end
 
   root to: 'tasks#index'
-  resources :tasks
+  resources :tasks do
+    collection do
+      get :priority
+    end
+  end
 end
