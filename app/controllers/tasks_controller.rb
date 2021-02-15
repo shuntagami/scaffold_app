@@ -34,6 +34,10 @@ class TasksController < ApplicationController
     redirect_to tasks_url, notice: "タスク「#{@task.name}」を削除しました。"
   end
 
+  def priority
+    @priority_tasks = current_user.tasks.priority
+  end
+
   private
 
   def task_params
