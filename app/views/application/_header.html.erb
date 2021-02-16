@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <%= link_to "TASKUN", root_path, class: 'navbar-brand l-header__logo' %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <% if current_user && current_user.admin?  %>
+        <li class="nav-item">
+          <%= header_link_item(icon('fas', 'users') + ' すべてのユーザー', admin_users_path) %>
+        </li>
+      <% end %>
+    </ul>
+
+    <ul class="navbar-nav">
+      <% if current_user  %>
+        <li class="nav-item">
+          <%= header_link_item(icon('fas', 'edit') + ' 新規投稿', new_task_path) %>
+        </li>
+      <% end %>
+      <!-- <li class="nav&#45;item"> -->
+        <%# <%= header_link_item(icon('fas', 'search') + ' 検索', search_posts_path) %>
+      <!-- </li> -->
+      <% if current_user %>
+        <li class="nav-item dropdown">
+          <%= link_to icon('fas', 'user') + " #{current_user.name}さん", '#', class: "nav-link dropdown-toggle", id: "navbarDropdown", role: "button", data: { toggle: "dropdown" }, aria: { haspopup: "true", expanded: "false" } %>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to icon('fas', 'sign-out-alt') + ' ログアウト', logout_path, class: 'dropdown-item', method: :delete %>
+          </div>
+        </li>
+      <% else %>
+
+        <li class="nav-item">
+          <%# <%= link_to icon('fas', 'user-plus') + '新規登録', '#', class: "nav-link", "data-toggle": "modal", "data-target": "#signUpModal"%>
+        </li>
+        <li class="nav-item">
+          <%# <%= link_to icon('fas', 'sign-in-alt') + ' ログイン', '#', class: "nav-link", "data-toggle": "modal", "data-target": "#logInModal" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
+<% if flash.notice.present? %>
+  <p class="alert alert-success"><%= flash.notice %></p>
+<% end %>

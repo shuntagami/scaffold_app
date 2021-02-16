@@ -1,0 +1,5 @@
+<h1>タスク一覧</h1>
+
+<%= link_to '直近のタスク', priority_tasks_path, class: 'btn btn-primary mb-3' %>
+
+<%= render 'index_tasks', tasks: @tasks %>
