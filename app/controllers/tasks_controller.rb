@@ -38,6 +38,18 @@ class TasksController < ApplicationController
     @priority_tasks = current_user.tasks.priority
   end
 
+  def to_do
+    @to_do_tasks = current_user.tasks.to_do
+  end
+
+  def in_progress
+    @in_progress_tasks = current_user.tasks.in_progress
+  end
+
+  def done
+    @done_tasks = current_user.tasks.done
+  end
+
   private
 
   def task_params
