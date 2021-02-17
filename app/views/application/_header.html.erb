@@ -27,6 +27,9 @@
           <%= link_to icon('fas', 'user') + " #{current_user.name}さん", '#', class: "nav-link dropdown-toggle", id: "navbarDropdown", role: "button", data: { toggle: "dropdown" }, aria: { haspopup: "true", expanded: "false" } %>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <%= link_to icon('fas', 'sign-out-alt') + ' ログアウト', logout_path, class: 'dropdown-item', method: :delete %>
+            <% if current_user.admin? %>
+              <%= link_to '一覧', admin_users_path, class: 'dropdown-item' %>
+            <% end %>
           </div>
         </li>
       <% else %>
