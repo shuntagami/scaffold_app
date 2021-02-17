@@ -12,6 +12,9 @@
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <%= link_to '直近', priority_tasks_path, class: 'dropdown-item' %>
+            <%= link_to '未着手', to_do_tasks_path, class: 'dropdown-item' %>
+            <%= link_to '着手中', in_progress_tasks_path, class: 'dropdown-item' %>
+            <%= link_to '完了', done_tasks_path, class: 'dropdown-item' %>
           </div>
         </div>
       </th>
