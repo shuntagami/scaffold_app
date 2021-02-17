@@ -4,6 +4,16 @@
       <th scope="col"><%= Task.human_attribute_name(:name) %></th>
       <th scope="col"><%= Task.human_attribute_name(:deadline) %></th>
       <th scope="col"><%= Task.human_attribute_name(:created_at) %></th>
+      <th>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            並び替え
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <%= link_to '直近', priority_tasks_path, class: 'dropdown-item' %>
+          </div>
+        </div>
+      </th>
     </tr>
   </thead>
   <tbody>
