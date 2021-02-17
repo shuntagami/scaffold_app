@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   resources :tasks do
     collection do
       get :priority
+      get :to_do
+      get :in_progress
+      get :done
     end
   end
 end
