@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
 
   root to: 'tasks#index'
+  get 'tasks/search'
   resources :tasks do
     collection do
       get :priority
