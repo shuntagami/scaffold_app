@@ -8,13 +8,13 @@ Rails.application.routes.draw do
   end
 
   root to: 'tasks#index'
-  get 'tasks/search'
   resources :tasks do
     collection do
       get :priority
       get :to_do
       get :in_progress
       get :done
+      get :search
     end
   end
 end
