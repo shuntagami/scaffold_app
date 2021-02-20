@@ -11,12 +11,12 @@ RSpec.describe Task, type: :model do
     it '名称がないと登録できないこと' do
       task.name = ''
       task.valid?
-      expect(task).to be_valid
+      expect(task.errors[:name]).to include('を入力してください')
     end
     it '締め切りがないと登録できないこと' do
       task.deadline = ''
       task.valid?
-      expect(task).to_not be_valid
+      expect(task.errors[:deadline]).to include('を入力してください')
     end
   end
 end
