@@ -18,6 +18,11 @@ RSpec.describe Task, type: :model do
       task.valid?
       expect(task.errors[:deadline]).to include('を入力してください')
     end
+    it '名称にカンマを含めることができないこと' do
+      task.name = '明日, 買い物に行く'
+      task.valid?
+      expect(task.errors[:name]).to include('にカンマを含めることはできません')
+    end
   end
 
   describe '文字数の検証' do
