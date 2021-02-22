@@ -91,6 +91,8 @@ GEM
     factory_bot_rails (6.1.0)
       factory_bot (~> 6.1.0)
       railties (>= 5.0.0)
+    faker (2.16.0)
+      i18n (>= 1.6, < 2)
     ffi (1.14.2)
     font-awesome-sass (5.15.1)
       sassc (>= 1.11)
@@ -303,6 +305,7 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   factory_bot_rails
+  faker
   font-awesome-sass
   jbuilder (~> 2.7)
   launchy
@@ -330,4 +333,4 @@ RUBY VERSION
    ruby 3.0.0p0
 
 BUNDLED WITH
-   2.1.4
+   2.2.11

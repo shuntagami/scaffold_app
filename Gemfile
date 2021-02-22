@@ -61,4 +61,5 @@ group :test do
   gem 'webdrivers'
   gem 'rspec-rails'
   gem 'launchy'
+  gem 'faker'
 end
