@@ -32,6 +32,7 @@ gem 'rails-i18n'
 gem 'slim-rails'
 gem 'rails_autolink'
 gem 'ransack'
+gem 'faker'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -61,5 +62,4 @@ group :test do
   gem 'webdrivers'
   gem 'rspec-rails'
   gem 'launchy'
-  gem 'faker'
 end
