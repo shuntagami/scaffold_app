@@ -1,0 +1,8 @@
+<h1>検索結果</h1>
+
+<%= search_form_for @q do |f| %>
+  <%= f.label :name %>
+  <%= f.search_field :name_cont %>
+  <%= f.submit %>
+<%= render 'index_tasks', tasks: @results %>
+<% end %>

@@ -1,10 +1,8 @@
-<% if task.errors.present? %>
-  <ul id="error_explanation">
-    <% task.errors.full_messages.each do |message| %>
-      <li><%= ::Temple::Utils.escape_html_safe((message)) %> </li>
-    <% end %>
-  </ul>
-<% end %>
+<h1>タスクの編集</h1>
+
+<ul class='nav justify-content-end'>
+  <%= link_to '一覧', tasks_path, class: 'nav-link' %>
+</ul>
 
 <%= form_with model: @task, local: true do |f| %>
   <div class="form-group">
@@ -21,6 +19,12 @@
     <%= f.label :deadline, class: 'control-label' %>
     <%=f.date_field :deadline, class: 'form-control', id: 'task_deadline' %>
   </div>
+
+  <div class="form-group">
+    <%= f.label :completed, class: 'control-label' %>
+    <%= f.select :completed, [['未着手',0],['着手中',1],['完了', 2]], {}, class: 'form-control', id: 'task_completed' %>
+  </div>
+
 
   <%= f.submit nil, class: 'btn btn-primary' %>
 

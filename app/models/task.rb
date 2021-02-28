@@ -9,6 +9,9 @@ class Task < ApplicationRecord
 
   scope :recent, -> { order(created_at: :desc) }
   scope :priority, -> { order(deadline: :asc) }
+  scope :to_do, -> { where(completed: 0) }
+  scope :in_progress, -> { where(completed: 1) }
+  scope :done, -> { where(completed: 2) }
 
 
   private
