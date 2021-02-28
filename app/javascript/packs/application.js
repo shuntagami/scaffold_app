@@ -10,5 +10,4 @@ import "jquery"
 import "bootstrap/dist/js/bootstrap.min.js"
 
 Rails.start()
-Turbolinks.start()
 ActiveStorage.start()
